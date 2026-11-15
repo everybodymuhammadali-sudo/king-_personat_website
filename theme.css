@@ -1,0 +1,94 @@
+/* KING Personal Website — Dark Purple Theme
+   Add this file to the same folder as index.html.
+   In index.html, add this inside <head>, after any other stylesheet links:
+   <link rel="stylesheet" href="theme.css">
+*/
+
+:root {
+  --page-bg: #08070d;
+  --surface: #12101b;
+  --surface-2: #1a1626;
+  --text: #f5f1ff;
+  --muted: #b8afc9;
+  --accent: #9b5cff;
+  --accent-strong: #bd8cff;
+  --border: rgba(189, 140, 255, 0.22);
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--text);
+}
+
+/* Common page surfaces */
+header, nav, footer, section, article, .card, .container,
+.panel, .box, .profile-card {
+  border-color: var(--border);
+}
+
+.card, .panel, .box, .profile-card, article {
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+/* Text */
+h1, h2, h3, h4, strong {
+  color: var(--text);
+}
+
+p, small, .muted, .description {
+  color: var(--muted);
+}
+
+/* Links and buttons */
+a {
+  color: var(--accent-strong);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #d7baff;
+}
+
+button, .button, .btn, input[type="submit"] {
+  background: var(--accent);
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover, .button:hover, .btn:hover, input[type="submit"]:hover {
+  background: #8242e8;
+  transform: translateY(-1px);
+}
+
+/* Form fields */
+input, textarea, select {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Keep images tidy */
+img {
+  max-width: 100%;
+}
+
+/* Selection highlight */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
