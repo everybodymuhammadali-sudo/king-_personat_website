@@ -1,5 +1,5 @@
 /* ==========================================
-   محمد الكينج - Royal Neon Dynamic Theme
+   محمد الكينج - Royal Neon Dynamic Theme (Final)
    ========================================== */
 
 :root {
@@ -19,11 +19,12 @@
     padding: 0;
 }
 
-/* الخلفية المتحركة (لون أحمر وأسود رايح جاي بينور ويتحرك) */
+/* الخلفية الحمراء والسوداء المتحركة والانسيابية */
 body {
-    background: linear-gradient(135deg, #000000, #1a0000, #0a0000, #000000);
-    background-size: 400% 400%;
-    animation: backgroundDynamicFlow 12s ease infinite;
+    background-color: #1a0000 !important;
+    background-image: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #0d0000 100%) !important;
+    background-size: 300% 300% !important;
+    animation: backgroundDynamicFlow 8s ease infinite !important;
     color: var(--text-white);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.8;
