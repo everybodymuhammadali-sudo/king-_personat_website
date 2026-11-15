@@ -1,10 +1,9 @@
 /* ==========================================
-   محمد الكينج - Royal Neon Luxury Theme
+   محمد الكينج - Royal Neon Dynamic Theme
    ========================================== */
 
 :root {
-    --bg-color: #000000;
-    --card-bg: #0a0a0a;
+    --card-bg: rgba(10, 10, 10, 0.88);
     --primary-red: #8b0000;
     --glow-red: #ff1a1a;
     --accent-red: #ff3333;
@@ -20,8 +19,11 @@
     padding: 0;
 }
 
+/* الخلفية المتحركة (لون أحمر وأسود رايح جاي بينور ويتحرك) */
 body {
-    background-color: var(--bg-color);
+    background: linear-gradient(135deg, #000000, #1a0000, #0a0000, #000000);
+    background-size: 400% 400%;
+    animation: backgroundDynamicFlow 12s ease infinite;
     color: var(--text-white);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.8;
@@ -69,7 +71,7 @@ body {
     padding: 30px 20px 40px;
     border-bottom: 2px solid var(--primary-red);
     margin-bottom: 40px;
-    background: radial-gradient(circle at center, #150000 0%, #000000 70%);
+    background: transparent;
 }
 
 .profile-container {
@@ -158,7 +160,7 @@ body {
     box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red);
 }
 
-/* Main Cards with Glowing Neon Titles */
+/* Main Cards */
 main {
     display: flex;
     flex-direction: column;
@@ -168,17 +170,18 @@ main {
 
 .card {
     background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border-color);
     border-radius: 14px;
     padding: 30px;
-    box-shadow: 0 5px 25px rgba(139, 0, 0, 0.2);
+    box-shadow: 0 5px 25px rgba(139, 0, 0, 0.25);
     transition: transform var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .card:hover {
     transform: translateY(-4px);
     border-color: var(--glow-red);
-    box-shadow: 0 8px 35px rgba(255, 26, 26, 0.35);
+    box-shadow: 0 8px 35px rgba(255, 26, 26, 0.4);
 }
 
 .card h2 {
@@ -207,7 +210,7 @@ main {
 /* Phone Box Styling */
 .phone-box {
     margin-top: 20px;
-    background: rgba(139, 0, 0, 0.15);
+    background: rgba(139, 0, 0, 0.2);
     border: 2px solid var(--glow-red);
     padding: 15px 20px;
     border-radius: 12px;
@@ -243,7 +246,7 @@ main {
     color: var(--text-white);
 }
 
-/* Social Media Cards Grid with Glowing Red Borders */
+/* Social Media Cards Grid */
 .social-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -254,7 +257,7 @@ main {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: #121212;
+    background-color: rgba(18, 18, 18, 0.9);
     border: 1.5px solid var(--border-color);
     padding: 15px 20px;
     border-radius: 12px;
@@ -285,7 +288,7 @@ main {
 }
 
 .social-card:hover {
-    background-color: rgba(139, 0, 0, 0.25);
+    background-color: rgba(139, 0, 0, 0.35);
     border-color: var(--glow-red);
     transform: translateY(-4px);
     box-shadow: 0 0 25px rgba(255, 26, 26, 0.5), inset 0 0 10px rgba(255, 26, 26, 0.3);
@@ -306,7 +309,7 @@ main {
 }
 
 .grid-list li {
-    background-color: rgba(139, 0, 0, 0.12);
+    background-color: rgba(139, 0, 0, 0.15);
     border: 1px solid var(--border-color);
     padding: 14px 20px;
     border-radius: 10px;
@@ -336,12 +339,18 @@ main {
     text-align: center;
     padding: 30px 20px;
     border-top: 1px solid var(--border-color);
-    background-color: #050505;
+    background-color: rgba(5, 5, 5, 0.95);
     color: var(--text-gray);
     font-size: 1.1rem;
 }
 
-/* Dynamic Neon Animations */
+/* Animations for Dynamic Flow */
+@keyframes backgroundDynamicFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 @keyframes neonBorderFlow {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
