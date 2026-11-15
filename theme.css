@@ -1,94 +1,213 @@
-/* KING Personal Website — Dark Purple Theme
-   Add this file to the same folder as index.html.
-   In index.html, add this inside <head>, after any other stylesheet links:
-   <link rel="stylesheet" href="theme.css">
-*/
+/* ==========================================
+   KING Personal Website - Theme CSS
+   Dark Royal Aesthetic (Pitch Black & Dark Red)
+   ========================================== */
 
 :root {
-  --page-bg: #08070d;
-  --surface: #12101b;
-  --surface-2: #1a1626;
-  --text: #f5f1ff;
-  --muted: #b8afc9;
-  --accent: #9b5cff;
-  --accent-strong: #bd8cff;
-  --border: rgba(189, 140, 255, 0.22);
-  --shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    --bg-color: #000000;
+    --card-bg: #0a0a0a;
+    --primary-red: #8b0000;
+    --glow-red: #ff1a1a;
+    --accent-red: #e60000;
+    --text-white: #ffffff;
+    --text-gray: #b0b0b0;
+    --border-color: #2a0000;
+    --transition-speed: 0.3s;
 }
 
-html {
-  color-scheme: dark;
-  scroll-behavior: smooth;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  background: var(--page-bg);
-  color: var(--text);
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    direction: rtl;
+    padding: 0;
+    margin: 0;
 }
 
-/* Common page surfaces */
-header, nav, footer, section, article, .card, .container,
-.panel, .box, .profile-card {
-  border-color: var(--border);
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.card, .panel, .box, .profile-card, article {
-  background: var(--surface);
-  box-shadow: var(--shadow);
+/* Header Styling */
+.site-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+    background: radial-gradient(circle at center, #1a0000 0%, #000000 70%);
 }
 
-/* Text */
-h1, h2, h3, h4, strong {
-  color: var(--text);
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-p, small, .muted, .description {
-  color: var(--muted);
+.crown {
+    font-size: 2.8rem;
+    color: var(--glow-red);
+    text-shadow: 0 0 15px var(--glow-red), 0 0 30px var(--primary-red);
+    animation: pulseGlow 2s infinite alternate;
 }
 
-/* Links and buttons */
-a {
-  color: var(--accent-strong);
-  transition: color 0.2s ease;
+.site-header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: var(--text-white);
+    text-shadow: 0 0 10px var(--glow-red);
 }
 
-a:hover {
-  color: #d7baff;
+.tagline {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
-button, .button, .btn, input[type="submit"] {
-  background: var(--accent);
-  color: #fff;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  transition: background 0.2s ease, transform 0.2s ease;
+/* Main Cards Styling */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-bottom: 50px;
 }
 
-button:hover, .button:hover, .btn:hover, input[type="submit"]:hover {
-  background: #8242e8;
-  transform: translateY(-1px);
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(139, 0, 0, 0.15);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
 }
 
-/* Form fields */
-input, textarea, select {
-  background: var(--surface-2);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-red);
+    box-shadow: 0 6px 25px rgba(255, 26, 26, 0.25);
 }
 
-input:focus, textarea:focus, select:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+.card h2 {
+    color: var(--glow-red);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--primary-red);
+    padding-bottom: 8px;
+    display: inline-block;
+    text-shadow: 0 0 8px rgba(255, 26, 26, 0.4);
 }
 
-/* Keep images tidy */
-img {
-  max-width: 100%;
+.card p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
 }
 
-/* Selection highlight */
-::selection {
-  background: var(--accent);
-  color: #fff;
+/* Grid Lists for Interests and Ambitions */
+.grid-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.grid-list li {
+    background-color: rgba(139, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--text-white);
+    font-weight: 600;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.grid-list li:hover {
+    background-color: var(--primary-red);
+    transform: scale(1.03);
+    box-shadow: 0 0 10px var(--glow-red);
+}
+
+/* Social Buttons */
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.social-btn {
+    background-color: rgba(139, 0, 0, 0.2);
+    border: 1px solid var(--primary-red);
+    color: var(--text-white);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.social-btn:hover {
+    background-color: var(--glow-red);
+    color: var(--bg-color);
+    box-shadow: 0 0 15px var(--glow-red);
+}
+
+/* Footer Styling */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: #050505;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+}
+
+.site-footer p {
+    text-shadow: 0 0 5px rgba(255, 26, 26, 0.3);
+}
+
+/* Responsive Design for Mobile / Android */
+@media (max-width: 768px) {
+    .site-header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .crown {
+        font-size: 2.2rem;
+    }
+
+    .tagline {
+        font-size: 1.05rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation */
+@keyframes pulseGlow {
+    0% {
+        text-shadow: 0 0 10px var(--primary-red);
+    }
+    100% {
+        text-shadow: 0 0 20px var(--glow-red), 0 0 30px var(--accent-red);
+    }
 }
