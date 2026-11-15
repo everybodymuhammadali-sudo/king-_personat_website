@@ -3,62 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محمد الكينج - الموقع الشخصي</title>
+    <title>محمد الكينج | الموقع الشخصي الرسمي</title>
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="container">
-            <!-- قسم الصورة الشخصية والشعار -->
+        <div class="header-overlay"></div>
+        <div class="container header-content">
             <div class="profile-container">
                 <div class="avatar-wrapper">
-                    <!-- ضع رابط صورتك الشخصية هنا بدلاً من الصورة الافتراضية -->
-                    <img src="https://via.placeholder.com/150" alt="صورة محمد الكينج" class="profile-avatar">
+                    <!-- تم ربط الصورة الشخصية هنا باسم profile.png -->
+                    <img src="profile.png" alt="محمد الكينج" class="profile-avatar">
                     <span class="crown-badge">♛</span>
                 </div>
             </div>
             
             <div class="logo">
                 <h1>محمد الكينج</h1>
+                <span class="username">@king_x97</span>
             </div>
-            <p class="tagline">مهتم بعالم التكنولوجيا والألعاب والأمن السيبراني. أحب اكتشاف الجديد، وتعلّم المهارات التقنية، وتطوير نفسي خطوة بخطوة.</p>
+            <p class="tagline">صانع محتوى، ومهتم بعالم التكنولوجيا والألعاب والأمن السيبراني. أحب اكتشاف الجديد، وتعلّم المهارات التقنية، وتطوير نفسي خطوة بخطوة.</p>
+            
+            <!-- أزرار السوشيال ميديا السريعة -->
+            <div class="quick-socials">
+                <a href="https://www.tiktok.com/@.king_x97" target="_blank" class="social-icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/share/1TZhnifosR/" target="_blank" class="social-icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/king_x979?psln=OTAzbnE4cTh1MG50" target="_blank" class="social-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/XMXXMZZ" target="_blank" class="social-icon telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://github.com/everybodymuhammadali-sudo" target="_blank" class="social-icon github" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </header>
 
     <main class="container">
         <section class="card about-section">
-            <h2>نبذة عني</h2>
-            <p>أنا محمد الكينج. أستمتع بالتعرّف على التكنولوجيا والكمبيوتر والألعاب، وأهتم بمجال الأمن السيبراني والتعلّم عن حماية الأنظمة بشكل قانوني وأخلاقي. هذا الموقع مساحة بسيطة للتعريف باهتماماتي ومشاركتي في عالم التقنية.</p>
+            <h2><i class="fas fa-crown"></i> نبذة عني</h2>
+            <p>أنا <strong>محمد الكينج</strong>. شغوف بعالم التكنولوجيا والكمبيوتر وتجميعات الألعاب، وأهتم بشكل خاص بمجال الأمن السيبراني والتعلّم المستمر حول حماية الأنظمة والشبكات بأسلوب قانوني وأخلاقي.</p>
+        </section>
+
+        <!-- شبكة حسابات السوشيال ميديا التفصيلية -->
+        <section class="card social-cards-section">
+            <h2><i class="fas fa-share-alt"></i> حساباتي الرسمية</h2>
+            <p class="section-sub">تواصل معي وتابع أحدث محتواي عبر منصات التواصل:</p>
+            <div class="social-grid">
+                <a href="https://www.tiktok.com/@.king_x97" target="_blank" class="social-card tiktok-card">
+                    <i class="fab fa-tiktok"></i>
+                    <div class="social-info"><h3>تيك توك (TikTok)</h3><span>@.king_x97</span></div>
+                </a>
+                <a href="https://www.facebook.com/share/1TZhnifosR/" target="_blank" class="social-card facebook-card">
+                    <i class="fab fa-facebook"></i>
+                    <div class="social-info"><h3>فيسبوك (Facebook)</h3><span>الحساب الرسمي</span></div>
+                </a>
+                <a href="https://www.instagram.com/king_x979?psln=OTAzbnE4cTh1MG50" target="_blank" class="social-card instagram-card">
+                    <i class="fab fa-instagram"></i>
+                    <div class="social-info"><h3>إنستغرام (Instagram)</h3><span>@king_x979</span></div>
+                </a>
+                <a href="https://t.me/XMXXMZZ" target="_blank" class="social-card telegram-card">
+                    <i class="fab fa-telegram"></i>
+                    <div class="social-info"><h3>تليجرام (Telegram)</h3><span>@XMXXMZZ</span></div>
+                </a>
+                <a href="https://github.com/everybodymuhammadali-sudo" target="_blank" class="social-card github-card">
+                    <i class="fab fa-github"></i>
+                    <div class="social-info"><h3>جيت هب (GitHub)</h3><span>المشاريع البرمجية</span></div>
+                </a>
+            </div>
         </section>
 
         <section class="card interests-section">
-            <h2>اهتماماتي</h2>
+            <h2><i class="fas fa-laptop-code"></i> مجالات اهتمامي</h2>
             <ul class="grid-list">
-                <li>التكنولوجيا</li>
-                <li>الألعاب</li>
-                <li>الكمبيوتر</li>
-                <li>الأمن السيبراني</li>
-                <li>التعلّم التقني</li>
+                <li><i class="fas fa-shield-alt"></i> الأمن السيبراني</li>
+                <li><i class="fas fa-gamepad"></i> عالم الألعاب (Gaming)</li>
+                <li><i class="fas fa-desktop"></i> هاردوير وتجميعات الكمبيوتر</li>
+                <li><i class="fas fa-microchip"></i> التكنولوجيا الحديثة</li>
             </ul>
         </section>
 
         <section class="card ambitions-section">
-            <h2>طموحاتي</h2>
+            <h2><i class="fas fa-rocket"></i> طموحاتي</h2>
             <ul class="grid-list">
                 <li>تعلّم مستمر.</li>
                 <li>أمن سيبراني أخلاقي.</li>
                 <li>تطوير الذات.</li>
             </ul>
-        </section>
-
-        <!-- قسم حسابات السوشيال ميديا -->
-        <section class="card social-section">
-            <h2>حساباتي</h2>
-            <div class="social-links">
-                <a href="https://github.com/everybodymuhammadali-sudo" target="_blank" class="social-btn">GitHub</a>
-                <a href="https://t.me/YOUR_USERNAME" target="_blank" class="social-btn">Telegram</a>
-                <!-- يمكنك إضافة حسابات أخرى هنا بنفس الطريقة -->
-            </div>
         </section>
     </main>
 
