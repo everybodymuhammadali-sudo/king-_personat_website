@@ -372,3 +372,16 @@ main {
     0% { box-shadow: 0 0 10px var(--primary-red); }
     100% { box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red); }
 }
+/* خلفية حمراء وسوداء متحركة وفخمة */
+body {
+    background-color: #1a0000 !important;
+    background-image: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #0d0000 100%) !important;
+    background-size: 300% 300% !important;
+    animation: backgroundDynamicFlow 8s ease infinite !important;
+}
+
+@keyframes backgroundDynamicFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
