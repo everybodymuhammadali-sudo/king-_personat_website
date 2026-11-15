@@ -1,10 +1,10 @@
 /* ==========================================
-   محمد الكينج - Royal Neon Theme CSS
+   محمد الكينج - Royal Neon Luxury Theme
    ========================================== */
 
 :root {
     --bg-color: #000000;
-    --card-bg: #0b0b0b;
+    --card-bg: #0a0a0a;
     --primary-red: #8b0000;
     --glow-red: #ff1a1a;
     --accent-red: #ff3333;
@@ -34,40 +34,51 @@ body {
     padding: 0 20px;
 }
 
-/* Header with Wide Background Image & Neon Glow */
-.site-header {
+/* Wide Banner with Glowing Red Neon Frame */
+.banner-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+}
+
+.banner-glow-frame {
     position: relative;
-    text-align: center;
-    padding: 90px 20px 70px;
-    border-bottom: 3px solid var(--primary-red);
-    margin-bottom: 45px;
-    background-image: url('bg.png');
-    background-size: cover;
-    background-position: center;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(139, 0, 0, 0.5);
+    width: 100%;
+    height: 320px;
+    border-radius: 16px;
+    padding: 4px;
+    background: linear-gradient(45deg, var(--glow-red), #000, var(--primary-red), var(--glow-red));
+    background-size: 300% 300%;
+    animation: neonBorderFlow 4s ease infinite;
+    box-shadow: 0 0 25px rgba(255, 26, 26, 0.6), inset 0 0 15px rgba(255, 26, 26, 0.4);
     overflow: hidden;
 }
 
-.header-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.banner-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.65), rgba(20, 0, 0, 0.82), #000000);
-    z-index: 1;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
 }
 
-.header-content {
-    position: relative;
-    z-index: 2;
+/* Header & Profile Avatar */
+.site-header {
+    text-align: center;
+    padding: 30px 20px 40px;
+    border-bottom: 2px solid var(--primary-red);
+    margin-bottom: 40px;
+    background: radial-gradient(circle at center, #150000 0%, #000000 70%);
 }
 
-/* Clean Profile Avatar (No Crown Over It) */
 .profile-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 22px;
+    margin-top: -85px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 5;
 }
 
 .avatar-wrapper {
@@ -77,6 +88,8 @@ body {
     padding: 4px;
     background: linear-gradient(45deg, var(--glow-red), #000, var(--primary-red));
     animation: borderNeonGlow 3s infinite alternate;
+    box-shadow: 0 0 30px rgba(255, 26, 26, 0.7);
+    background-color: #000;
 }
 
 .profile-avatar {
@@ -85,7 +98,6 @@ body {
     border-radius: 50%;
     object-fit: cover;
     display: block;
-    box-shadow: 0 0 25px rgba(255, 26, 26, 0.5);
 }
 
 .site-header h1 {
@@ -115,7 +127,7 @@ body {
     margin: 0 auto 25px;
 }
 
-/* Quick Social Icons in Header */
+/* Quick Social Icons with Pulsing Red Glow */
 .quick-socials {
     display: flex;
     justify-content: center;
@@ -124,25 +136,26 @@ body {
 }
 
 .social-icon {
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: rgba(15, 15, 15, 0.9);
-    border: 1px solid var(--primary-red);
+    background-color: rgba(15, 15, 15, 0.95);
+    border: 2px solid var(--glow-red);
     color: var(--text-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     text-decoration: none;
+    box-shadow: 0 0 12px rgba(255, 26, 26, 0.4);
     transition: all var(--transition-speed);
 }
 
 .social-icon:hover {
     background-color: var(--glow-red);
     color: #000000;
-    transform: translateY(-4px) scale(1.1);
-    box-shadow: 0 0 20px var(--glow-red);
+    transform: translateY(-5px) scale(1.12);
+    box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red);
 }
 
 /* Main Cards with Glowing Neon Titles */
@@ -191,7 +204,46 @@ main {
     font-size: 1rem !important;
 }
 
-/* Social Media Cards Grid */
+/* Phone Box Styling */
+.phone-box {
+    margin-top: 20px;
+    background: rgba(139, 0, 0, 0.15);
+    border: 2px solid var(--glow-red);
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);
+    animation: borderNeonGlow 3s infinite alternate;
+}
+
+.phone-box i {
+    font-size: 1.5rem;
+    color: var(--glow-red);
+    text-shadow: 0 0 10px var(--glow-red);
+}
+
+.phone-box span {
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+.phone-box a {
+    color: var(--glow-red);
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-decoration: none;
+    text-shadow: 0 0 12px var(--glow-red);
+    transition: transform var(--transition-speed);
+}
+
+.phone-box a:hover {
+    transform: scale(1.05);
+    color: var(--text-white);
+}
+
+/* Social Media Cards Grid with Glowing Red Borders */
 .social-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -203,19 +255,20 @@ main {
     align-items: center;
     gap: 15px;
     background-color: #121212;
-    border: 1px solid var(--border-color);
+    border: 1.5px solid var(--border-color);
     padding: 15px 20px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
     color: var(--text-white);
     transition: all var(--transition-speed);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.15);
 }
 
 .social-card i {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--glow-red);
     transition: transform var(--transition-speed);
-    text-shadow: 0 0 10px var(--glow-red);
+    text-shadow: 0 0 12px var(--glow-red);
 }
 
 .social-info h3 {
@@ -234,12 +287,13 @@ main {
 .social-card:hover {
     background-color: rgba(139, 0, 0, 0.25);
     border-color: var(--glow-red);
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(255, 26, 26, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(255, 26, 26, 0.5), inset 0 0 10px rgba(255, 26, 26, 0.3);
 }
 
 .social-card:hover i {
-    transform: scale(1.15);
+    transform: scale(1.18);
+    text-shadow: 0 0 20px var(--glow-red), 0 0 30px var(--accent-red);
 }
 
 /* Grid Lists */
@@ -255,7 +309,7 @@ main {
     background-color: rgba(139, 0, 0, 0.12);
     border: 1px solid var(--border-color);
     padding: 14px 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
     color: var(--text-white);
     font-weight: 600;
@@ -268,12 +322,13 @@ main {
 
 .grid-list li i {
     color: var(--glow-red);
+    text-shadow: 0 0 8px var(--glow-red);
 }
 
 .grid-list li:hover {
     background-color: var(--primary-red);
     transform: scale(1.03);
-    box-shadow: 0 0 15px var(--glow-red);
+    box-shadow: 0 0 18px var(--glow-red);
 }
 
 /* Footer */
@@ -286,30 +341,24 @@ main {
     font-size: 1.1rem;
 }
 
-/* Neon Animations */
+/* Dynamic Neon Animations */
+@keyframes neonBorderFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 @keyframes textNeonPulse {
-    0% {
-        text-shadow: 0 0 5px var(--primary-red), 0 0 10px var(--glow-red);
-    }
-    100% {
-        text-shadow: 0 0 15px var(--glow-red), 0 0 30px var(--accent-red), 0 0 45px var(--glow-red);
-    }
+    0% { text-shadow: 0 0 5px var(--primary-red), 0 0 10px var(--glow-red); }
+    100% { text-shadow: 0 0 15px var(--glow-red), 0 0 30px var(--accent-red), 0 0 45px var(--glow-red); }
 }
 
 @keyframes titleGlow {
-    0% {
-        text-shadow: 0 0 5px var(--primary-red);
-    }
-    100% {
-        text-shadow: 0 0 15px var(--glow-red), 0 0 25px var(--accent-red);
-    }
+    0% { text-shadow: 0 0 5px var(--primary-red); }
+    100% { text-shadow: 0 0 15px var(--glow-red), 0 0 25px var(--accent-red); }
 }
 
 @keyframes borderNeonGlow {
-    0% {
-        box-shadow: 0 0 10px var(--primary-red);
-    }
-    100% {
-        box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red);
-    }
+    0% { box-shadow: 0 0 10px var(--primary-red); }
+    100% { box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red); }
 }
