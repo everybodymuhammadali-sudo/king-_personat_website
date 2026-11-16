@@ -3,119 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محمد الكينج - King | Cyber Security & Gaming</title>
-    <link rel="stylesheet" href="theme.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>محمد الكينج | Elite Hacker & Gamer</title>
+    <!-- خط وسمات فخمة -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-purple: #9333ea;
+            --dark-purple: #581c87;
+            --neon-glow: rgba(147, 51, 234, 0.6);
+            --bg-deep: #0a0512;
+            --bg-card: rgba(18, 10, 30, 0.75);
+            --text-main: #f3e8ff;
+            --text-muted: #d8b4fe;
+            --border-color: rgba(147, 51, 234, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* خلفية الجزيئات المتحركة */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* شريط الحالة العلوي */
+        .top-status-bar {
+            background: rgba(10, 5, 18, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .live-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #4ade80;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #4ade80;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4ade80;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 15px #4ade80; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .visitors-counter {
+            color: var(--text-muted);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* الهيدر الملكي */
+        .hero-section {
+            background: var(--bg-card);
+            border: 2px solid var(--primary-purple);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 0 30px var(--neon-glow);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .king-crown-badge {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--primary-purple);
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .profile-img-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-purple);
+            box-shadow: 0 0 20px var(--neon-glow);
+            overflow: hidden;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary-purple);
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .typewriter-box {
+            font-size: 1.05rem;
+            color: #e9d5ff;
+            min-height: 40px;
+            border-right: 2px solid var(--primary-purple);
+            white-space: nowrap;
+            overflow: hidden;
+            margin: 0 auto;
+            animation: blink 0.75s step-end infinite;
+            max-width: fit-content;
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-purple); }
+        }
+
+        /* الكروت والأقسام */
+        .card-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+        }
+
+        .card-box:hover {
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 25px var(--neon-glow);
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .section-title i {
+            color: var(--primary-purple);
+        }
+
+        /* زر نسخ الرقم المباشر */
+        .phone-action-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(88, 28, 135, 0.3);
+            border: 1px solid var(--primary-purple);
+            padding: 12px 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .phone-number {
+            font-family: monospace;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .copy-btn {
+            background: var(--primary-purple);
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+            background: #7e22ce;
+        }
+
+        /* شريط المهارات */
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(147, 51, 234, 0.2);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--dark-purple), var(--primary-purple));
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--primary-purple);
+        }
+
+        /* ترمينال الكينج التفاعلي */
+        .terminal {
+            background: #05020a;
+            border: 1px solid var(--primary-purple);
+            border-radius: 12px;
+            padding: 15px;
+            font-family: monospace;
+            color: #4ade80;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .t-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .t-red { background: #ef4444; }
+        .t-yellow { background: #eab308; }
+        .t-green { background: #22c55e; }
+
+        /* مشاريع الكينج */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: rgba(147, 51, 234, 0.08);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary-purple);
+            background: rgba(147, 51, 234, 0.15);
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* شبكة السوشيال ميديا */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        @media (min-width: 600px) {
+            .social-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .social-card {
+            background: rgba(88, 28, 135, 0.2);
+            border: 1px solid var(--border-color);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .social-card:hover {
+            background: var(--primary-purple);
+            border-color: #fff;
+            box-shadow: 0 0 20px var(--neon-glow);
+            transform: translateY(-3px);
+        }
+
+        .social-card i {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .social-card:hover i {
+            color: #fff;
+        }
+
+        .social-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .social-handle {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .social-card:hover .social-handle {
+            color: #f3e8ff;
+        }
+
+        /* إشعار منبثق للنسخ */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--primary-purple);
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 0 20px var(--neon-glow);
+            transition: transform 0.3s ease;
+            z-index: 2000;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- البانر الكبير في الخلفية -->
-    <div class="banner-container">
-        <img src="bg.png" alt="Banner" class="banner-image">
+    <!-- خلفية جزيئات متحركة -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- شريط الحالة العلوي -->
+    <div class="top-status-bar">
+        <div class="live-status">
+            <div class="pulse-dot"></div>
+            <span>متصل الآن | Online</span>
+        </div>
+        <div class="visitors-counter">
+            <i class="fa-solid fa-eye"></i> الزوار: <span id="visitor-count">1,482</span>
+        </div>
     </div>
 
     <div class="container">
-        <!-- الهيدر والصورة الصغيرة ملزوقة في البانر من تحت -->
-        <header class="site-header">
-            <img src="profile.png" alt="Profile" class="profile-avatar">
-            <div class="logo">
-                <h1>محمد الكينج</h1>
-                <span>@king_x97 | Elite Hacker & Gamer</span>
+        
+        <!-- الهيدر الملكي -->
+        <div class="hero-section">
+            <div class="king-crown-badge"><i class="fa-solid fa-crown"></i></div>
+            <div class="profile-img-container">
+                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&q=80" alt="محمد الكينج">
             </div>
-            <p class="tagline">« لست مجرد لاعب.. بل عقل يبحث عن القوة والمعرفة في عالم الظلال السيبراني »</p>
-        </header>
+            <h1 class="profile-name">محمد الكينج</h1>
+            <p class="profile-title">king_x97 | Elite Hacker & Gamer</p>
+            <div class="typewriter-box" id="typewriter"></div>
+        </div>
 
-        <!-- قسم نبذة عني والأمن السيبراني والهكر الأخلاقي -->
-        <section class="card-about-section">
-            <h2>⚡ نبذة عن الكينج وعالم الهكر الأخلاقي</h2>
-            <p>أنا محمد الكينج، صانع محتوى تقني وهكر أخلاقي (Ethical Hacker). شغوف باكتشاف الثغرات، وتأمين الأنظمة والشبكات بأسلوب احترافي وقانوني، مع الغوص عميقاً في أسرار الهاردوير وتجميعات الألعاب الفائقة. أؤمن دائماً بأن المعرفة هي السلاح الأقوى.</p>
+        <!-- نبذة عن الكينج -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-bolt"></i> نبذة عن الكينج وعالم الهكر الأخلاقي
+            </div>
+            <p style="line-height: 1.7; color: var(--text-muted);">
+                أنا محمد الكينج، صانع محتوى تقني وهكر أخلاقي (Ethical Hacker). شغوف باكتشاف الثغرات، وتأمين الأنظمة والشبكات باحتراف وقانوني، مع الغوص عميقاً في أسرار الهاردوير وتجميعات الألعاب Gaming Rigs الخارقة. أؤمن دائماً بأن المعرفة هي السلاح الأقوى.
+            </p>
             
-            <div class="phone-box">
-                📞 رقم الهاتف المباشر:<br>
-                <a href="tel:01093149503">01093149503</a>
-            </div>
-        </section>
-
-        <!-- قسم المهارات والبرمجة وتطوير الأنظمة -->
-        <section class="card-skills-section">
-            <h2>🛡️ مجالات الاختصاص والمهارات المتقدمة</h2>
-            <p>• <strong>الأمن السيبراني:</strong> فحص واختبار الاختراق الأخلاقي وحماية الخوادم.<br>
-               • <strong>هاردوير الكمبيوتر:</strong> احتراف تجميعات الألعاب والـ Gaming Rigs الخارقة.<br>
-               • <strong>البرمجة وصناعة المحتوى:</strong> تطوير الأدوات التقنية وتقديم محتوى احترافي.</p>
-        </section>
-
-        <!-- قسم الألعاب والـ Gaming -->
-        <section class="card-gaming-section">
-            <h2>🎮 عالم الألعاب والتحديات (Gaming)</h2>
-            <p>عشق بلا حدود لعالم الألعاب الاستراتيجية والقتالية والتجميعات المخصصة، حيث الأداء الفائق والسرعة القصوى في كل التحديات.</p>
-        </section>
-
-        <!-- قسم معرض الصور والذكريات -->
-        <section class="card-about-section">
-            <h2>🖼️ معرض الصور واللقطات الملكية</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="profile.png" alt="King Profile">
-                    <p>صورة الكينج الشخصية</p>
+            <div class="phone-action-box">
+                <div>
+                    <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">رقم الهاتف المباشر</span>
+                    <span class="phone-number" id="phone-text">01093149503</span>
                 </div>
-                <div class="gallery-item">
-                    <img src="bg.png" alt="King Banner">
-                    <p>البانر والبرواز الرئيسي</p>
+                <button class="copy-btn" onclick="copyPhone()">
+                    <i class="fa-regular fa-copy"></i> نسخ الرقم
+                </button>
+            </div>
+        </div>
+
+        <!-- ترمينال الكينج التفاعلي -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-terminal"></i> ترمينال الكينج (Cyber Terminal)
+            </div>
+            <div class="terminal">
+                <div class="terminal-header">
+                    <div class="t-dot t-red"></div>
+                    <div class="t-dot t-yellow"></div>
+                    <div class="t-dot t-green"></div>
+                </div>
+                <p>root@king-system:~$ status</p>
+                <p>> System Security: 100% Protected</p>
+                <p>> Mission: Exploring the digital universe & Gaming</p>
+                <p style="color: #fff; margin-top: 8px;">> Status: Ready for new challenges... _</p>
+            </div>
+        </div>
+
+        <!-- مجالات الاختصاص والمهارات -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-shield-halved"></i> مجالات الاختصاص والمهارات المتقدمة
+            </div>
+            
+            <div class="skill-item">
+                <div class="skill-info">
+                    <span>الأمن السيبراني واختبار الاختراق</span>
+                    <span>98%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 98%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-info">
+                    <span>هاردوير وتجميعات Gaming الخارقة</span>
+                    <span>95%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+            </div>
+
+            <div class="skill-item">
+                <div class="skill-info">
+                    <span>البرمجة وتطوير البوتات والأدوات</span>
+                    <span>90%</span>
+                </div>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+        </div>
+
+        <!-- قسم المشاريع والأدوات البرمجية -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-code"></i> أحدث المشاريع والأدوات البرمجية
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">
+                        <span>بوت تيليجرام الخاص بالكينج</span>
+                        <i class="fa-solid fa-robot" style="color: var(--primary-purple);"></i>
+                    </div>
+                    <div class="project-desc">بوت تفاعلي متطور مصمم خصيصاً لإدارة المهام والتواصل السريع وربط الذكاء الاصطناعي.</div>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">
+                        <span>أداة فحص الثغرات (Cyber Shield)</span>
+                        <i class="fa-solid fa-shield-dog" style="color: var(--primary-purple);"></i>
+                    </div>
+                    <div class="project-desc">أداة برمجية مخصصة لفحص الأنظمة وتأمين الشبكات المحلية باحترافية عالية.</div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- قسم حساباتك الرسمية (كل كارت فوقه اللوجو الخاص بيه وبرابطك الحقيقي) -->
-        <section class="card-social-cards-section">
-            <h2>🌐 حساباتي ومنصاتي الرسمية</h2>
-            <p>تواصل معي مباشرة عبر حساباتي الموثقة:</p>
+        <!-- عالم الألعاب والتحديات -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-gamepad"></i> عالم الألعاب والتحديات (Gaming)
+            </div>
+            <p style="line-height: 1.7; color: var(--text-muted);">
+                عشق بلا حدود لعالم الألعاب الاستراتيجية والقتالية والتجميعات المخصصة، حيث الأداء الفائق والسرعة القصوى في كل التحديات. منافس دائم في عوالم الألعاب الجماعية وRoblox.
+            </p>
+        </div>
+
+        <!-- حساباتي ومنصاتي الرسمية -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-share-nodes"></i> حساباتي ومنصاتي الرسمية
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">تواصل معي مباشرة عبر حساباتي الموثقة:</p>
             
             <div class="social-grid">
-                <!-- تيك توك -->
-                <a href="https://www.tiktok.com/@.king_x97" target="_blank" class="social-card-item">
-                    <i class="fa-brands fa-tiktok social-logo"></i>
-                    <span class="platform-name">تيك توك (TikTok)</span>
-                    <span class="platform-user">@.king_x97</span>
+                <a href="https://tiktok.com/@king_x97" target="_blank" class="social-card">
+                    <i class="fa-brands fa-tiktok"></i>
+                    <span class="social-name">تيك توك (TikTok)</span>
+                    <span class="social-handle">king_x97@</span>
                 </a>
 
-                <!-- إستغرام -->
-                <a href="https://www.instagram.com/king_x979" target="_blank" class="social-card-item">
-                    <i class="fa-brands fa-instagram social-logo"></i>
-                    <span class="platform-name">إستغرام (Instagram)</span>
-                    <span class="platform-user">@king_x979</span>
+                <a href="https://instagram.com/kng_x97" target="_blank" class="social-card">
+                    <i class="fa-brands fa-instagram"></i>
+                    <span class="social-name">إنستجرام (Instagram)</span>
+                    <span class="social-handle">kng_x97@</span>
                 </a>
 
-                <!-- سناب شات -->
-                <a href="https://www.snapchat.com/add/mhmd_lbywmy7564" target="_blank" class="social-card-item">
-                    <i class="fa-brands fa-snapchat social-logo"></i>
-                    <span class="platform-name">سناب شات (Snapchat)</span>
-                    <span class="platform-user">mhmd_lbywmy7564</span>
+                <a href="https://snapchat.com" target="_blank" class="social-card">
+                    <i class="fa-brands fa-snapchat"></i>
+                    <span class="social-name">سناب شات (Snapchat)</span>
+                    <span class="social-handle">mhmd_bywmy7564</span>
                 </a>
 
-                <!-- فيسبوك -->
-                <a href="https://www.facebook.com/share/19qUB3ieMz/" target="_blank" class="social-card-item">
-                    <i class="fa-brands fa-facebook social-logo"></i>
-                    <span class="platform-name">فيسبوك (Facebook)</span>
-                    <span class="platform-user">الحساب الرسمي</span>
+                <a href="https://youtube.com" target="_blank" class="social-card">
+                    <i class="fa-brands fa-youtube"></i>
+                    <span class="social-name">يوتيوب (YouTube)</span>
+                    <span class="social-handle">قناة محمد البيومي</span>
                 </a>
 
-                <!-- تليجرام -->
-                <a href="https://t.me/XMXXMZZ" target="_blank" class="social-card-item">
-                    <i class="fa-brands fa-telegram social-logo"></i>
-                    <span class="platform-name">تليجرام (Telegram)</span>
-                    <span class="platform-user">@XMXXMZZ</span>
+                <a href="https://t.me/XMXIMZZ" target="_blank" class="social-card">
+                    <i class="fa-brands fa-telegram"></i>
+                    <span class="social-name">تيليجرام (Telegram)</span>
+                    <span class="social-handle">XMXIMZZ@</span>
                 </a>
 
-                <!-- يوتيوب -->
-                <a href="https://www.youtube.com/@%D9%85%D8%AD%D9%85%D8%AF%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D9%85%D9%8A-%D9%848%D8%B2" target="_blank" class="social-card-item">
-                    <i class="fa-brands fa-youtube social-logo"></i>
-                    <span class="platform-name">يوتيوب (YouTube)</span>
-                    <span class="platform-user">قناة محمد البيومي</span>
+                <a href="https://facebook.com" target="_blank" class="social-card">
+                    <i class="fa-brands fa-facebook"></i>
+                    <span class="social-name">فيسبوك (Facebook)</span>
+                    <span class="social-handle">الحساب الرسمي</span>
                 </a>
             </div>
-        </section>
+        </div>
+
+        <footer>
+            <p>KING - THE LEGEND NEVER STOPS © 2026</p>
+        </footer>
     </div>
 
+    <!-- إشعار منبثق للنسخ -->
+    <div class="toast" id="toast-notification">تم نسخ رقم الكينج بنجاح! 👑</div>
+
+    <script>
+        // تأثير الكتابة الآلية (Typewriter Effect)
+        const texts = [
+            "لست مجرد لاعب.. بل عقل يبحث عن القوة والمعرفة.",
+            "Elite Hacker & Cyber Security Specialist.",
+            "Dream Big, Hack Bigger."
+        ];
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+
+            document.getElementById("typewriter").textContent = letter;
+            if (letter.length === currentText.length) {
+                setTimeout(() => {
+                    index = 0;
+                    count++;
+                    setTimeout(type, 1000);
+                }, 3000);
+            } else {
+                setTimeout(type, 70);
+            }
+        })();
+
+        // دالة نسخ الرقم مع إشعار أنيق
+        function copyPhone() {
+            const phoneNumber = document.getElementById("phone-text").innerText;
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                const toast = document.getElementById("toast-notification");
+                toast.classList.add("show");
+                setTimeout(() => {
+                    toast.classList.remove("show");
+                }, 2500);
+            });
+        }
+
+        // خلفية الجزيئات المضيئة (Canvas Animation)
+        const canvas = document.getElementById("particles-canvas");
+        const ctx = canvas.getContext("2d");
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+
+        const particlesArray = [];
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = "rgba(147, 51, 234, 0.4)";
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < 50; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particlesArray.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+    </script>
 </body>
 </html>
