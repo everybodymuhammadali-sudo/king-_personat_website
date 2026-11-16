@@ -11,13 +11,13 @@
         :root {
             --primary-purple: #9333ea;
             --bright-purple: #c084fc;
-            --dark-purple: #581c87;
-            --neon-glow: rgba(147, 51, 234, 0.75);
-            --bg-deep: #0a0512;
-            --bg-card: rgba(18, 10, 30, 0.82);
+            --dark-purple: #4c1d95;
+            --neon-glow: rgba(168, 85, 247, 0.85);
+            --bg-deep: #07030d;
+            --bg-card: rgba(16, 8, 28, 0.88);
             --text-main: #f3e8ff;
             --text-muted: #d8b4fe;
-            --border-color: rgba(147, 51, 234, 0.4);
+            --border-color: rgba(147, 51, 234, 0.5);
         }
 
         * {
@@ -28,14 +28,42 @@
             scroll-behavior: smooth;
         }
 
+        /* خلفية بنفسجية متحركة ونابضة بالألوان باستمرار */
         body {
-            background-color: var(--bg-deep);
+            background: linear-gradient(-45deg, #05020a, #1f073b, #0d041a, #350b6b);
+            background-size: 400% 400%;
+            animation: purpleWaveBg 12s ease infinite;
             color: var(--text-main);
             overflow-x: hidden;
             position: relative;
+            min-height: 100vh;
         }
 
-        /* خلفية الجزيئات المتحركة */
+        @keyframes purpleWaveBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* إضاءة محيطية خلف الموقع */
+        .ambient-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 90vw;
+            height: 90vw;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.28) 0%, rgba(88, 28, 135, 0.1) 50%, transparent 75%);
+            pointer-events: none;
+            z-index: -1;
+            animation: ambientBreath 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes ambientBreath {
+            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.4; }
+            100% { transform: translate(-50%, -50%) scale(1.25); opacity: 1; }
+        }
+
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -48,7 +76,7 @@
 
         /* شريط الحالة العلوي */
         .top-status-bar {
-            background: rgba(10, 5, 18, 0.92);
+            background: rgba(10, 5, 18, 0.94);
             border-bottom: 1px solid var(--border-color);
             padding: 8px 20px;
             display: flex;
@@ -73,13 +101,13 @@
             height: 10px;
             background-color: #4ade80;
             border-radius: 50%;
-            box-shadow: 0 0 10px #4ade80;
+            box-shadow: 0 0 12px #4ade80;
             animation: pulse 1.5s infinite;
         }
 
         @keyframes pulse {
             0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 15px #4ade80; }
+            50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 18px #4ade80; }
             100% { transform: scale(0.95); opacity: 0.8; }
         }
 
@@ -93,15 +121,15 @@
             padding: 20px;
         }
 
-        /* حركة النيون المستمرة للكروت والصور */
+        /* حركة النيون المستمرة القوية */
         @keyframes royalNeonPulse {
             0% {
-                box-shadow: 0 0 12px rgba(147, 51, 234, 0.35), inset 0 0 8px rgba(147, 51, 234, 0.2);
-                border-color: #6b21a8;
+                box-shadow: 0 0 15px rgba(147, 51, 234, 0.4), inset 0 0 10px rgba(147, 51, 234, 0.25);
+                border-color: #7e22ce;
             }
             100% {
-                box-shadow: 0 0 32px rgba(168, 85, 247, 0.95), 0 0 55px rgba(147, 51, 234, 0.6);
-                border-color: #d8b4fe;
+                box-shadow: 0 0 35px rgba(192, 132, 252, 0.95), 0 0 60px rgba(147, 51, 234, 0.75);
+                border-color: #f3e8ff;
             }
         }
 
@@ -115,7 +143,7 @@
             margin-bottom: 25px;
             position: relative;
             overflow: hidden;
-            animation: royalNeonPulse 2.8s infinite alternate;
+            animation: royalNeonPulse 2.5s infinite alternate;
         }
 
         .king-crown-badge {
@@ -124,7 +152,7 @@
             right: 20px;
             color: var(--bright-purple);
             font-size: 1.5rem;
-            text-shadow: 0 0 12px var(--primary-purple);
+            text-shadow: 0 0 15px var(--primary-purple);
             animation: float 3s ease-in-out infinite;
         }
 
@@ -134,14 +162,15 @@
         }
 
         .profile-img-container {
-            width: 125px;
-            height: 125px;
+            width: 130px;
+            height: 130px;
             margin: 0 auto 15px;
             border-radius: 50%;
-            border: 3px solid var(--primary-purple);
+            border: 3px solid var(--bright-purple);
             overflow: hidden;
             position: relative;
-            animation: royalNeonPulse 2s infinite alternate;
+            animation: royalNeonPulse 1.8s infinite alternate;
+            background: #140824;
         }
 
         .profile-img-container img {
@@ -154,7 +183,7 @@
             font-size: 2rem;
             font-weight: 900;
             color: #fff;
-            text-shadow: 0 0 15px var(--primary-purple);
+            text-shadow: 0 0 18px var(--primary-purple);
             margin-bottom: 5px;
         }
 
@@ -195,7 +224,7 @@
 
         .card-box:hover {
             border-color: var(--bright-purple);
-            box-shadow: 0 0 28px var(--neon-glow);
+            box-shadow: 0 0 30px var(--neon-glow);
             transform: translateY(-3px);
         }
 
@@ -207,26 +236,26 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid rgba(147, 51, 234, 0.25);
+            border-bottom: 1px solid rgba(147, 51, 234, 0.3);
             padding-bottom: 10px;
         }
 
         .section-title i {
             color: var(--bright-purple);
-            text-shadow: 0 0 8px var(--primary-purple);
+            text-shadow: 0 0 10px var(--primary-purple);
         }
 
-        /* صندوق رقم الهاتف المضيء بالنيون البنفسجي والقابل للاتصال */
+        /* رقم الهاتف المضيء بالنيون وقابل للاتصال الفوري */
         .phone-action-box {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(88, 28, 135, 0.35);
+            background: rgba(88, 28, 135, 0.4);
             border: 2px solid var(--primary-purple);
             padding: 14px 20px;
             border-radius: 14px;
             margin-top: 18px;
-            animation: royalNeonPulse 2s infinite alternate;
+            animation: royalNeonPulse 1.8s infinite alternate;
         }
 
         .phone-call-link {
@@ -250,23 +279,18 @@
             font-weight: 900;
             letter-spacing: 1.5px;
             color: #fff;
-            text-shadow: 0 0 10px #c084fc, 0 0 20px #9333ea, 0 0 30px #7e22ce;
-            animation: textNeonGlow 1.6s infinite alternate;
-            transition: transform 0.2s;
-        }
-
-        .phone-call-link:active .phone-number {
-            transform: scale(0.96);
+            text-shadow: 0 0 10px #c084fc, 0 0 22px #9333ea, 0 0 35px #7e22ce;
+            animation: textNeonGlow 1.5s infinite alternate;
         }
 
         @keyframes textNeonGlow {
             0% {
                 color: #f3e8ff;
-                text-shadow: 0 0 6px #9333ea, 0 0 12px #7e22ce;
+                text-shadow: 0 0 8px #9333ea, 0 0 15px #7e22ce;
             }
             100% {
                 color: #ffffff;
-                text-shadow: 0 0 12px #e9d5ff, 0 0 24px #c084fc, 0 0 38px #9333ea;
+                text-shadow: 0 0 15px #e9d5ff, 0 0 28px #c084fc, 0 0 42px #9333ea;
             }
         }
 
@@ -278,7 +302,7 @@
             border-radius: 10px;
             cursor: pointer;
             font-weight: 700;
-            box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
+            box-shadow: 0 0 15px rgba(147, 51, 234, 0.6);
             transition: all 0.2s;
             display: flex;
             align-items: center;
@@ -287,6 +311,44 @@
 
         .copy-btn:active {
             transform: scale(0.94);
+        }
+
+        /* معرض الصور واللقطات الملكية (مطابق لمستودعك profile.png و bg.png) */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .gallery-item {
+            background: rgba(88, 28, 135, 0.25);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            text-align: center;
+            animation: royalNeonPulse 3s infinite alternate;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .gallery-caption {
+            padding: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
         /* شريط المهارات */
@@ -307,7 +369,7 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 4px;
             overflow: hidden;
-            border: 1px solid rgba(147, 51, 234, 0.25);
+            border: 1px solid rgba(147, 51, 234, 0.3);
         }
 
         .skill-progress {
@@ -327,7 +389,7 @@
             color: #4ade80;
             font-size: 0.9rem;
             margin-top: 10px;
-            box-shadow: inset 0 0 15px rgba(147, 51, 234, 0.25);
+            box-shadow: inset 0 0 15px rgba(147, 51, 234, 0.3);
         }
 
         .terminal-header {
@@ -355,7 +417,7 @@
         }
 
         .project-card {
-            background: rgba(147, 51, 234, 0.1);
+            background: rgba(147, 51, 234, 0.12);
             border: 1px solid var(--border-color);
             padding: 15px;
             border-radius: 12px;
@@ -364,8 +426,8 @@
 
         .project-card:hover {
             border-color: var(--bright-purple);
-            background: rgba(147, 51, 234, 0.2);
-            box-shadow: 0 0 18px rgba(147, 51, 234, 0.4);
+            background: rgba(147, 51, 234, 0.22);
+            box-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
         }
 
         .project-title {
@@ -396,7 +458,7 @@
         }
 
         .social-card {
-            background: rgba(88, 28, 135, 0.25);
+            background: rgba(88, 28, 135, 0.3);
             border: 1px solid var(--border-color);
             padding: 16px 12px;
             border-radius: 14px;
@@ -413,7 +475,7 @@
         .social-card:hover {
             background: linear-gradient(135deg, #9333ea, #581c87);
             border-color: #fff;
-            box-shadow: 0 0 24px var(--neon-glow);
+            box-shadow: 0 0 26px var(--neon-glow);
             transform: translateY(-4px);
         }
 
@@ -454,7 +516,7 @@
             padding: 12px 26px;
             border-radius: 30px;
             font-weight: 700;
-            box-shadow: 0 0 25px var(--neon-glow);
+            box-shadow: 0 0 28px var(--neon-glow);
             transition: transform 0.3s ease;
             z-index: 2000;
         }
@@ -475,6 +537,7 @@
 </head>
 <body>
 
+    <div class="ambient-glow"></div>
     <canvas id="particles-canvas"></canvas>
 
     <!-- شريط الحالة العلوي -->
@@ -494,10 +557,11 @@
         <div class="hero-section">
             <div class="king-crown-badge"><i class="fa-solid fa-crown"></i></div>
             <div class="profile-img-container">
-                <img src="https://i.ibb.co/30j16pGk/IMG-20261116-170002.jpg" alt="محمد الكينج" onerror="this.src='https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&q=80'">
+                <!-- صورتك الشخصية المطبقة من ملفك profile.png -->
+                <img src="profile.png" alt="محمد الكينج">
             </div>
             <h1 class="profile-name">محمد الكينج</h1>
-            <p class="profile-title">king_x97 | Elite Hacker & Gamer</p>
+            <p class="profile-title">king_x979 | Elite Hacker & Gamer</p>
             <div class="typewriter-box" id="typewriter"></div>
         </div>
 
@@ -518,6 +582,23 @@
                 <button class="copy-btn" onclick="copyPhone()">
                     <i class="fa-regular fa-copy"></i> نسخ
                 </button>
+            </div>
+        </div>
+
+        <!-- معرض الصور واللقطات الملكية (باستخدام bg.png و profile.png الموجودين في مستودعك) -->
+        <div class="card-box">
+            <div class="section-title">
+                <i class="fa-solid fa-images"></i> معرض الصور واللقطات الملكية
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="bg.png" alt="البانر الملكي الرئيسي">
+                    <div class="gallery-caption">البروفايل والبانر الرئيسي</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="profile.png" alt="صورة الكينج الشخصية">
+                    <div class="gallery-caption">صورة الكينج الشخصية</div>
+                </div>
             </div>
         </div>
 
@@ -603,7 +684,7 @@
             </p>
         </div>
 
-        <!-- حساباتي ومنصاتي الرسمية -->
+        <!-- حساباتي ومنصاتي الرسمية (روابطك الحقيقية التي أرسلتها تماماً) -->
         <div class="card-box">
             <div class="section-title">
                 <i class="fa-solid fa-share-nodes"></i> حساباتي ومنصاتي الرسمية
@@ -612,42 +693,42 @@
             
             <div class="social-grid">
                 <!-- تيك توك -->
-                <a href="https://www.tiktok.com/@king_x97" target="_blank" class="social-card">
+                <a href="https://Tiktok.com/@.king_x97" target="_blank" class="social-card">
                     <i class="fa-brands fa-tiktok"></i>
                     <span class="social-name">تيك توك (TikTok)</span>
-                    <span class="social-handle">@king_x97</span>
+                    <span class="social-handle">@.king_x97</span>
                 </a>
 
                 <!-- إنستجرام -->
-                <a href="https://www.instagram.com/kng_x97" target="_blank" class="social-card">
+                <a href="https://www.instagram.com/king_x979?obrf=OTAzbnE4cTh1MG50" target="_blank" class="social-card">
                     <i class="fa-brands fa-instagram"></i>
                     <span class="social-name">إنستجرام (Instagram)</span>
-                    <span class="social-handle">@kng_x97</span>
+                    <span class="social-handle">@king_x979</span>
                 </a>
 
                 <!-- سناب شات -->
-                <a href="https://www.snapchat.com/add/mhmd_bywmy7564" target="_blank" class="social-card">
+                <a href="https://www.snapchat.com/add/mhmd_lbywmy7564?share_id=d8mewFMdQ08&locale=ar-AE" target="_blank" class="social-card">
                     <i class="fa-brands fa-snapchat"></i>
                     <span class="social-name">سناب شات (Snapchat)</span>
-                    <span class="social-handle">mhmd_bywmy7564</span>
+                    <span class="social-handle">mhmd_lbywmy7564</span>
                 </a>
 
                 <!-- يوتيوب -->
-                <a href="https://www.youtube.com/results?search_query=قناة+محمد+البيومي" target="_blank" class="social-card">
+                <a href="https://www.youtube.com/@%D9%85%D8%AD%D9%85%D8%AF%D8%A7%D9%84%D8%A8%D9%8A%D9%88%D9%85%D9%8A-%D9%848%D8%B2" target="_blank" class="social-card">
                     <i class="fa-brands fa-youtube"></i>
                     <span class="social-name">يوتيوب (YouTube)</span>
                     <span class="social-handle">قناة محمد البيومي</span>
                 </a>
 
                 <!-- تيليجرام -->
-                <a href="https://t.me/XMXIMZZ" target="_blank" class="social-card">
+                <a href="https://t.me/XMXXMZZ" target="_blank" class="social-card">
                     <i class="fa-brands fa-telegram"></i>
                     <span class="social-name">تيليجرام (Telegram)</span>
-                    <span class="social-handle">@XMXIMZZ</span>
+                    <span class="social-handle">@XMXXMZZ</span>
                 </a>
 
                 <!-- فيسبوك -->
-                <a href="https://www.facebook.com/search/top?q=محمد%20الكينج" target="_blank" class="social-card">
+                <a href="https://www.facebook.com/share/19qUB3ieMz/" target="_blank" class="social-card">
                     <i class="fa-brands fa-facebook"></i>
                     <span class="social-name">فيسبوك (Facebook)</span>
                     <span class="social-handle">الحساب الرسمي</span>
@@ -732,7 +813,7 @@
                 if (this.y < 0) this.y = canvas.height;
             }
             draw() {
-                ctx.fillStyle = "rgba(192, 132, 252, 0.45)";
+                ctx.fillStyle = "rgba(192, 132, 252, 0.5)";
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -740,7 +821,7 @@
         }
 
         function initParticles() {
-            for (let i = 0; i < 55; i++) {
+            for (let i = 0; i < 60; i++) {
                 particlesArray.push(new Particle());
             }
         }
