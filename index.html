@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محمد الكينج | Elite Hacker & Gamer</title>
-    <!-- خط وسمات فخمة -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary-purple: #9333ea;
+            --bright-purple: #c084fc;
             --dark-purple: #581c87;
-            --neon-glow: rgba(147, 51, 234, 0.6);
+            --neon-glow: rgba(147, 51, 234, 0.75);
             --bg-deep: #0a0512;
-            --bg-card: rgba(18, 10, 30, 0.75);
+            --bg-card: rgba(18, 10, 30, 0.82);
             --text-main: #f3e8ff;
             --text-muted: #d8b4fe;
-            --border-color: rgba(147, 51, 234, 0.3);
+            --border-color: rgba(147, 51, 234, 0.4);
         }
 
         * {
@@ -48,7 +48,7 @@
 
         /* شريط الحالة العلوي */
         .top-status-bar {
-            background: rgba(10, 5, 18, 0.9);
+            background: rgba(10, 5, 18, 0.92);
             border-bottom: 1px solid var(--border-color);
             padding: 8px 20px;
             display: flex;
@@ -93,6 +93,18 @@
             padding: 20px;
         }
 
+        /* حركة النيون المستمرة للكروت والصور */
+        @keyframes royalNeonPulse {
+            0% {
+                box-shadow: 0 0 12px rgba(147, 51, 234, 0.35), inset 0 0 8px rgba(147, 51, 234, 0.2);
+                border-color: #6b21a8;
+            }
+            100% {
+                box-shadow: 0 0 32px rgba(168, 85, 247, 0.95), 0 0 55px rgba(147, 51, 234, 0.6);
+                border-color: #d8b4fe;
+            }
+        }
+
         /* الهيدر الملكي */
         .hero-section {
             background: var(--bg-card);
@@ -100,18 +112,19 @@
             border-radius: 20px;
             padding: 30px 20px;
             text-align: center;
-            box-shadow: 0 0 30px var(--neon-glow);
             margin-bottom: 25px;
             position: relative;
             overflow: hidden;
+            animation: royalNeonPulse 2.8s infinite alternate;
         }
 
         .king-crown-badge {
             position: absolute;
             top: 15px;
             right: 20px;
-            color: var(--primary-purple);
+            color: var(--bright-purple);
             font-size: 1.5rem;
+            text-shadow: 0 0 12px var(--primary-purple);
             animation: float 3s ease-in-out infinite;
         }
 
@@ -121,13 +134,14 @@
         }
 
         .profile-img-container {
-            width: 120px;
-            height: 120px;
+            width: 125px;
+            height: 125px;
             margin: 0 auto 15px;
             border-radius: 50%;
             border: 3px solid var(--primary-purple);
-            box-shadow: 0 0 20px var(--neon-glow);
             overflow: hidden;
+            position: relative;
+            animation: royalNeonPulse 2s infinite alternate;
         }
 
         .profile-img-container img {
@@ -140,7 +154,7 @@
             font-size: 2rem;
             font-weight: 900;
             color: #fff;
-            text-shadow: 0 0 10px var(--primary-purple);
+            text-shadow: 0 0 15px var(--primary-purple);
             margin-bottom: 5px;
         }
 
@@ -154,7 +168,7 @@
             font-size: 1.05rem;
             color: #e9d5ff;
             min-height: 40px;
-            border-right: 2px solid var(--primary-purple);
+            border-right: 2px solid var(--bright-purple);
             white-space: nowrap;
             overflow: hidden;
             margin: 0 auto;
@@ -164,7 +178,7 @@
 
         @keyframes blink {
             from, to { border-color: transparent }
-            50% { border-color: var(--primary-purple); }
+            50% { border-color: var(--bright-purple); }
         }
 
         /* الكروت والأقسام */
@@ -174,14 +188,14 @@
             border-radius: 16px;
             padding: 25px;
             margin-bottom: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(8px);
             transition: all 0.3s ease;
         }
 
         .card-box:hover {
-            border-color: var(--primary-purple);
-            box-shadow: 0 0 25px var(--neon-glow);
+            border-color: var(--bright-purple);
+            box-shadow: 0 0 28px var(--neon-glow);
             transform: translateY(-3px);
         }
 
@@ -193,41 +207,78 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            border-bottom: 1px solid rgba(147, 51, 234, 0.2);
+            border-bottom: 1px solid rgba(147, 51, 234, 0.25);
             padding-bottom: 10px;
         }
 
         .section-title i {
-            color: var(--primary-purple);
+            color: var(--bright-purple);
+            text-shadow: 0 0 8px var(--primary-purple);
         }
 
-        /* زر نسخ الرقم المباشر */
+        /* صندوق رقم الهاتف المضيء بالنيون البنفسجي والقابل للاتصال */
         .phone-action-box {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(88, 28, 135, 0.3);
-            border: 1px solid var(--primary-purple);
-            padding: 12px 20px;
-            border-radius: 12px;
-            margin-top: 15px;
+            background: rgba(88, 28, 135, 0.35);
+            border: 2px solid var(--primary-purple);
+            padding: 14px 20px;
+            border-radius: 14px;
+            margin-top: 18px;
+            animation: royalNeonPulse 2s infinite alternate;
+        }
+
+        .phone-call-link {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .phone-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         .phone-number {
             font-family: monospace;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
             color: #fff;
+            text-shadow: 0 0 10px #c084fc, 0 0 20px #9333ea, 0 0 30px #7e22ce;
+            animation: textNeonGlow 1.6s infinite alternate;
+            transition: transform 0.2s;
+        }
+
+        .phone-call-link:active .phone-number {
+            transform: scale(0.96);
+        }
+
+        @keyframes textNeonGlow {
+            0% {
+                color: #f3e8ff;
+                text-shadow: 0 0 6px #9333ea, 0 0 12px #7e22ce;
+            }
+            100% {
+                color: #ffffff;
+                text-shadow: 0 0 12px #e9d5ff, 0 0 24px #c084fc, 0 0 38px #9333ea;
+            }
         }
 
         .copy-btn {
-            background: var(--primary-purple);
+            background: linear-gradient(135deg, #9333ea, #6b21a8);
             color: #fff;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
+            border: 1px solid var(--bright-purple);
+            padding: 9px 16px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(147, 51, 234, 0.5);
             transition: all 0.2s;
             display: flex;
             align-items: center;
@@ -235,8 +286,7 @@
         }
 
         .copy-btn:active {
-            transform: scale(0.95);
-            background: #7e22ce;
+            transform: scale(0.94);
         }
 
         /* شريط المهارات */
@@ -257,14 +307,14 @@
             background: rgba(255, 255, 255, 0.05);
             border-radius: 4px;
             overflow: hidden;
-            border: 1px solid rgba(147, 51, 234, 0.2);
+            border: 1px solid rgba(147, 51, 234, 0.25);
         }
 
         .skill-progress {
             height: 100%;
-            background: linear-gradient(90deg, var(--dark-purple), var(--primary-purple));
+            background: linear-gradient(90deg, var(--dark-purple), var(--bright-purple));
             border-radius: 4px;
-            box-shadow: 0 0 10px var(--primary-purple);
+            box-shadow: 0 0 12px var(--primary-purple);
         }
 
         /* ترمينال الكينج التفاعلي */
@@ -276,7 +326,8 @@
             font-family: monospace;
             color: #4ade80;
             font-size: 0.9rem;
-            margin-top: 15px;
+            margin-top: 10px;
+            box-shadow: inset 0 0 15px rgba(147, 51, 234, 0.25);
         }
 
         .terminal-header {
@@ -300,11 +351,11 @@
             display: grid;
             grid-template-columns: 1fr;
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 10px;
         }
 
         .project-card {
-            background: rgba(147, 51, 234, 0.08);
+            background: rgba(147, 51, 234, 0.1);
             border: 1px solid var(--border-color);
             padding: 15px;
             border-radius: 12px;
@@ -312,8 +363,9 @@
         }
 
         .project-card:hover {
-            border-color: var(--primary-purple);
-            background: rgba(147, 51, 234, 0.15);
+            border-color: var(--bright-purple);
+            background: rgba(147, 51, 234, 0.2);
+            box-shadow: 0 0 18px rgba(147, 51, 234, 0.4);
         }
 
         .project-title {
@@ -344,10 +396,10 @@
         }
 
         .social-card {
-            background: rgba(88, 28, 135, 0.2);
+            background: rgba(88, 28, 135, 0.25);
             border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 12px;
+            padding: 16px 12px;
+            border-radius: 14px;
             text-align: center;
             text-decoration: none;
             color: #fff;
@@ -359,15 +411,16 @@
         }
 
         .social-card:hover {
-            background: var(--primary-purple);
+            background: linear-gradient(135deg, #9333ea, #581c87);
             border-color: #fff;
-            box-shadow: 0 0 20px var(--neon-glow);
-            transform: translateY(-3px);
+            box-shadow: 0 0 24px var(--neon-glow);
+            transform: translateY(-4px);
         }
 
         .social-card i {
-            font-size: 1.5rem;
-            color: var(--text-muted);
+            font-size: 1.6rem;
+            color: var(--bright-purple);
+            text-shadow: 0 0 10px var(--primary-purple);
         }
 
         .social-card:hover i {
@@ -375,13 +428,14 @@
         }
 
         .social-name {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
         }
 
         .social-handle {
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
+            direction: ltr;
         }
 
         .social-card:hover .social-handle {
@@ -394,12 +448,13 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: var(--primary-purple);
+            background: linear-gradient(135deg, #9333ea, #6b21a8);
+            border: 1px solid #d8b4fe;
             color: #fff;
-            padding: 10px 25px;
+            padding: 12px 26px;
             border-radius: 30px;
-            font-weight: 600;
-            box-shadow: 0 0 20px var(--neon-glow);
+            font-weight: 700;
+            box-shadow: 0 0 25px var(--neon-glow);
             transition: transform 0.3s ease;
             z-index: 2000;
         }
@@ -420,7 +475,6 @@
 </head>
 <body>
 
-    <!-- خلفية جزيئات متحركة -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- شريط الحالة العلوي -->
@@ -440,29 +494,29 @@
         <div class="hero-section">
             <div class="king-crown-badge"><i class="fa-solid fa-crown"></i></div>
             <div class="profile-img-container">
-                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&q=80" alt="محمد الكينج">
+                <img src="https://i.ibb.co/30j16pGk/IMG-20261116-170002.jpg" alt="محمد الكينج" onerror="this.src='https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=300&q=80'">
             </div>
             <h1 class="profile-name">محمد الكينج</h1>
             <p class="profile-title">king_x97 | Elite Hacker & Gamer</p>
             <div class="typewriter-box" id="typewriter"></div>
         </div>
 
-        <!-- نبذة عن الكينج -->
+        <!-- نبذة عن الكينج + رقم الهاتف المضيء للاتصال الفوري -->
         <div class="card-box">
             <div class="section-title">
                 <i class="fa-solid fa-bolt"></i> نبذة عن الكينج وعالم الهكر الأخلاقي
             </div>
             <p style="line-height: 1.7; color: var(--text-muted);">
-                أنا محمد الكينج، صانع محتوى تقني وهكر أخلاقي (Ethical Hacker). شغوف باكتشاف الثغرات، وتأمين الأنظمة والشبكات باحتراف وقانوني، مع الغوص عميقاً في أسرار الهاردوير وتجميعات الألعاب Gaming Rigs الخارقة. أؤمن دائماً بأن المعرفة هي السلاح الأقوى.
+                أنا محمد الكينج، صانع محتوى تقني وهكر أخلاقي (Ethical Hacker). شغوف باكتشاف الثغرات، وتأمين الأنظمة والشبكات بأسلوب احترافي وقانوني، مع الغوص عميقاً في أسرار الهاردوير وتجميعات الألعاب Gaming Rigs الخارقة. أؤمن دائماً بأن المعرفة هي السلاح الأقوى.
             </p>
             
             <div class="phone-action-box">
-                <div>
-                    <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">رقم الهاتف المباشر</span>
+                <a href="tel:01093149503" class="phone-call-link" title="اضغط للاتصال المباشر">
+                    <span class="phone-label"><i class="fa-solid fa-phone-volume"></i> اضغط على الرقم للاتصال المباشر</span>
                     <span class="phone-number" id="phone-text">01093149503</span>
-                </div>
+                </a>
                 <button class="copy-btn" onclick="copyPhone()">
-                    <i class="fa-regular fa-copy"></i> نسخ الرقم
+                    <i class="fa-regular fa-copy"></i> نسخ
                 </button>
             </div>
         </div>
@@ -525,14 +579,14 @@
                 <div class="project-card">
                     <div class="project-title">
                         <span>بوت تيليجرام الخاص بالكينج</span>
-                        <i class="fa-solid fa-robot" style="color: var(--primary-purple);"></i>
+                        <i class="fa-solid fa-robot" style="color: var(--bright-purple);"></i>
                     </div>
                     <div class="project-desc">بوت تفاعلي متطور مصمم خصيصاً لإدارة المهام والتواصل السريع وربط الذكاء الاصطناعي.</div>
                 </div>
                 <div class="project-card">
                     <div class="project-title">
                         <span>أداة فحص الثغرات (Cyber Shield)</span>
-                        <i class="fa-solid fa-shield-dog" style="color: var(--primary-purple);"></i>
+                        <i class="fa-solid fa-shield-dog" style="color: var(--bright-purple);"></i>
                     </div>
                     <div class="project-desc">أداة برمجية مخصصة لفحص الأنظمة وتأمين الشبكات المحلية باحترافية عالية.</div>
                 </div>
@@ -545,7 +599,7 @@
                 <i class="fa-solid fa-gamepad"></i> عالم الألعاب والتحديات (Gaming)
             </div>
             <p style="line-height: 1.7; color: var(--text-muted);">
-                عشق بلا حدود لعالم الألعاب الاستراتيجية والقتالية والتجميعات المخصصة، حيث الأداء الفائق والسرعة القصوى في كل التحديات. منافس دائم في عوالم الألعاب الجماعية وRoblox.
+                عشق بلا حدود لعالم الألعاب الاستراتيجية والقتالية والتجميعات المخصصة، حيث الأداء الفائق والسرعة القصوى في كل التحديات.
             </p>
         </div>
 
@@ -557,37 +611,43 @@
             <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px;">تواصل معي مباشرة عبر حساباتي الموثقة:</p>
             
             <div class="social-grid">
-                <a href="https://tiktok.com/@king_x97" target="_blank" class="social-card">
+                <!-- تيك توك -->
+                <a href="https://www.tiktok.com/@king_x97" target="_blank" class="social-card">
                     <i class="fa-brands fa-tiktok"></i>
                     <span class="social-name">تيك توك (TikTok)</span>
-                    <span class="social-handle">king_x97@</span>
+                    <span class="social-handle">@king_x97</span>
                 </a>
 
-                <a href="https://instagram.com/kng_x97" target="_blank" class="social-card">
+                <!-- إنستجرام -->
+                <a href="https://www.instagram.com/kng_x97" target="_blank" class="social-card">
                     <i class="fa-brands fa-instagram"></i>
                     <span class="social-name">إنستجرام (Instagram)</span>
-                    <span class="social-handle">kng_x97@</span>
+                    <span class="social-handle">@kng_x97</span>
                 </a>
 
-                <a href="https://snapchat.com" target="_blank" class="social-card">
+                <!-- سناب شات -->
+                <a href="https://www.snapchat.com/add/mhmd_bywmy7564" target="_blank" class="social-card">
                     <i class="fa-brands fa-snapchat"></i>
                     <span class="social-name">سناب شات (Snapchat)</span>
                     <span class="social-handle">mhmd_bywmy7564</span>
                 </a>
 
-                <a href="https://youtube.com" target="_blank" class="social-card">
+                <!-- يوتيوب -->
+                <a href="https://www.youtube.com/results?search_query=قناة+محمد+البيومي" target="_blank" class="social-card">
                     <i class="fa-brands fa-youtube"></i>
                     <span class="social-name">يوتيوب (YouTube)</span>
                     <span class="social-handle">قناة محمد البيومي</span>
                 </a>
 
+                <!-- تيليجرام -->
                 <a href="https://t.me/XMXIMZZ" target="_blank" class="social-card">
                     <i class="fa-brands fa-telegram"></i>
                     <span class="social-name">تيليجرام (Telegram)</span>
-                    <span class="social-handle">XMXIMZZ@</span>
+                    <span class="social-handle">@XMXIMZZ</span>
                 </a>
 
-                <a href="https://facebook.com" target="_blank" class="social-card">
+                <!-- فيسبوك -->
+                <a href="https://www.facebook.com/search/top?q=محمد%20الكينج" target="_blank" class="social-card">
                     <i class="fa-brands fa-facebook"></i>
                     <span class="social-name">فيسبوك (Facebook)</span>
                     <span class="social-handle">الحساب الرسمي</span>
@@ -604,7 +664,6 @@
     <div class="toast" id="toast-notification">تم نسخ رقم الكينج بنجاح! 👑</div>
 
     <script>
-        // تأثير الكتابة الآلية (Typewriter Effect)
         const texts = [
             "لست مجرد لاعب.. بل عقل يبحث عن القوة والمعرفة.",
             "Elite Hacker & Cyber Security Specialist.",
@@ -634,7 +693,6 @@
             }
         })();
 
-        // دالة نسخ الرقم مع إشعار أنيق
         function copyPhone() {
             const phoneNumber = document.getElementById("phone-text").innerText;
             navigator.clipboard.writeText(phoneNumber).then(() => {
@@ -646,7 +704,6 @@
             });
         }
 
-        // خلفية الجزيئات المضيئة (Canvas Animation)
         const canvas = document.getElementById("particles-canvas");
         const ctx = canvas.getContext("2d");
 
@@ -675,7 +732,7 @@
                 if (this.y < 0) this.y = canvas.height;
             }
             draw() {
-                ctx.fillStyle = "rgba(147, 51, 234, 0.4)";
+                ctx.fillStyle = "rgba(192, 132, 252, 0.45)";
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -683,7 +740,7 @@
         }
 
         function initParticles() {
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 55; i++) {
                 particlesArray.push(new Particle());
             }
         }
