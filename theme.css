@@ -1,396 +1,149 @@
-/* ==========================================
-   محمد الكينج - Royal Neon Dynamic Theme (Final)
-   ========================================== */
-
+/* ==========================================================
+   1. التنسيق الأساسي والعام للموقع والفونتات
+   ========================================================== */
 :root {
-    --card-bg: rgba(10, 10, 10, 0.88);
-    --primary-red: #8b0000;
-    --glow-red: #ff1a1a;
-    --accent-red: #ff3333;
-    --text-white: #ffffff;
-    --text-gray: #b8b8b8;
-    --border-color: #3d0000;
-    --transition-speed: 0.3s;
+    --primary-red: #ff0033;
+    --glow-red: rgba(255, 0, 51, 0.7);
+    --dark-bg: #0a0000;
 }
 
-* {
-    box-sizing: border-box;
+body {
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
-/* الخلفية الحمراء والسوداء المتحركة والانسيابية */
-body {
-    background-color: #1a0000 !important;
-    background-image: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #0d0000 100%) !important;
-    background-size: 300% 300% !important;
-    animation: backgroundDynamicFlow 8s ease infinite !important;
-    color: var(--text-white);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.8;
-    direction: rtl;
+/* ==========================================================
+   2. تنسيق فيديو الخلفية (Matrix Background Video)
+   ========================================================== */
+.bg-video {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+    z-index: -999 !important;
+    pointer-events: none !important;
+    opacity: 0.65; /* تحكم في درجة إضاءة الفيديو عشان العناصر تظهر بوضوح */
 }
 
-.container {
-    max-width: 950px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Wide Banner with Glowing Red Neon Frame */
+/* ==========================================================
+   3. تنسيق الحاويات والعناصر الأساسية والبرواز الملكي
+   ========================================================== */
 .banner-container {
-    width: 100%;
-    max-width: 950px;
-    margin: 20px auto 0;
-    padding: 0 20px;
-}
-
-.banner-glow-frame {
     position: relative;
     width: 100%;
-    height: 320px;
-    border-radius: 16px;
-    padding: 4px;
-    background: linear-gradient(45deg, var(--glow-red), #000, var(--primary-red), var(--glow-red));
-    background-size: 300% 300%;
-    animation: neonBorderFlow 4s ease infinite;
-    box-shadow: 0 0 25px rgba(255, 26, 26, 0.6), inset 0 0 15px rgba(255, 26, 26, 0.4);
+    max-width: 1200px;
+    margin: 20px auto;
+    border-radius: 15px;
     overflow: hidden;
+    box-shadow: 0 0 25px var(--glow-red);
+    border: 2px solid var(--primary-red);
+    background: rgba(10, 0, 0, 0.75); /* خلفية شفافة قليلاً لضمان وضوح ما بداخله */
 }
 
 .banner-image {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 14px;
+    height: auto;
     display: block;
 }
 
-/* Header & Profile Avatar */
+/* تنسيق الهيدر والبروفایل */
 .site-header {
     text-align: center;
-    padding: 30px 20px 40px;
-    border-bottom: 2px solid var(--primary-red);
-    margin-bottom: 40px;
-    background: transparent;
-}
-
-.profile-container {
-    display: flex;
-    justify-content: center;
-    margin-top: -85px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 5;
-}
-
-.avatar-wrapper {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    padding: 4px;
-    background: linear-gradient(45deg, var(--glow-red), #000, var(--primary-red));
-    animation: borderNeonGlow 3s infinite alternate;
-    box-shadow: 0 0 30px rgba(255, 26, 26, 0.7);
-    background-color: #000;
+    padding: 20px;
 }
 
 .profile-avatar {
-    width: 100%;
-    height: 100%;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 0 20px var(--glow-red);
     object-fit: cover;
-    display: block;
 }
 
-.site-header h1 {
-    font-size: 3.3rem;
-    font-weight: 800;
-    color: var(--text-white);
-    text-shadow: 0 0 10px var(--glow-red), 0 0 25px var(--glow-red), 0 0 40px var(--accent-red);
-    animation: textNeonPulse 2s infinite alternate;
-    margin-bottom: 5px;
+.logo h1 {
+    color: #fff;
+    text-shadow: 0 0 10px var(--primary-red);
+    margin: 10px 0 5px 0;
 }
 
-.username {
-    display: inline-block;
-    color: var(--glow-red);
-    font-size: 1.15rem;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    margin-bottom: 15px;
-    direction: ltr;
-    text-shadow: 0 0 10px var(--glow-red);
+.logo span {
+    color: #ff4d4d;
+    font-size: 1.1rem;
 }
 
 .tagline {
-    font-size: 1.15rem;
-    color: var(--text-gray);
-    max-width: 720px;
-    margin: 0 auto 25px;
+    color: #ddd;
+    max-width: 600px;
+    margin: 15px auto;
+    line-height: 1.6;
 }
 
-/* Quick Social Icons with Pulsing Red Glow */
+/* ==========================================================
+   4. أزرار السوشيال ميديا السريعة وأزرار الموقع
+   ========================================================== */
 .quick-socials {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .social-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: rgba(15, 15, 15, 0.95);
-    border: 2px solid var(--glow-red);
-    color: var(--text-white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
+    color: #fff;
+    background: rgba(255, 0, 51, 0.2);
+    border: 1px solid var(--primary-red);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease;
     text-decoration: none;
-    box-shadow: 0 0 12px rgba(255, 26, 26, 0.4);
-    transition: all var(--transition-speed);
 }
 
 .social-icon:hover {
-    background-color: var(--glow-red);
-    color: #000000;
-    transform: translateY(-5px) scale(1.12);
-    box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red);
+    background: var(--primary-red);
+    box-shadow: 0 0 15px var(--primary-red);
 }
 
-/* Main Cards */
-main {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding-bottom: 60px;
+/* الحاويات والبطاقات (Cards) */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.card {
-    background-color: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 30px;
-    box-shadow: 0 5px 25px rgba(139, 0, 0, 0.25);
-    transition: transform var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+.card-about-section, .card-social-cards-section {
+    background: rgba(20, 0, 0, 0.8);
+    border: 1px solid var(--primary-red);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
 }
 
-.card:hover {
-    transform: translateY(-4px);
-    border-color: var(--glow-red);
-    box-shadow: 0 8px 35px rgba(255, 26, 26, 0.4);
+.card-about-section h2, .card-social-cards-section h2 {
+    color: #fff;
+    text-shadow: 0 0 8px var(--primary-red);
+    border-bottom: 1px solid rgba(255, 0, 51, 0.4);
+    padding-bottom: 10px;
 }
 
-.card h2 {
-    color: var(--text-white);
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-    border-bottom: 2px solid var(--primary-red);
-    padding-bottom: 8px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    text-shadow: 0 0 10px var(--glow-red), 0 0 20px var(--primary-red);
-    animation: titleGlow 3s infinite alternate;
-}
-
-.card p {
-    color: var(--text-gray);
-    font-size: 1.1rem;
-}
-
-.section-sub {
-    margin-bottom: 20px;
-    font-size: 1rem !important;
-}
-
-/* Phone Box Styling */
+/* الأرقام والاتصال */
 .phone-box {
-    margin-top: 20px;
-    background: rgba(139, 0, 0, 0.2);
-    border: 2px solid var(--glow-red);
-    padding: 15px 20px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    box-shadow: 0 0 20px rgba(255, 26, 26, 0.3);
-    animation: borderNeonGlow 3s infinite alternate;
-}
-
-.phone-box i {
-    font-size: 1.5rem;
-    color: var(--glow-red);
-    text-shadow: 0 0 10px var(--glow-red);
-}
-
-.phone-box span {
-    color: var(--text-white);
-    font-weight: 600;
-}
-
-.phone-box a {
-    color: var(--glow-red);
-    font-weight: 700;
-    font-size: 1.25rem;
-    text-decoration: none;
-    text-shadow: 0 0 12px var(--glow-red);
-    transition: transform var(--transition-speed);
-}
-
-.phone-box a:hover {
-    transform: scale(1.05);
-    color: var(--text-white);
-}
-
-/* Social Media Cards Grid */
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 15px;
-}
-
-.social-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background-color: rgba(18, 18, 18, 0.9);
-    border: 1.5px solid var(--border-color);
-    padding: 15px 20px;
-    border-radius: 12px;
-    text-decoration: none;
-    color: var(--text-white);
-    transition: all var(--transition-speed);
-    box-shadow: 0 0 10px rgba(139, 0, 0, 0.15);
-}
-
-.social-card i {
-    font-size: 2.2rem;
-    color: var(--glow-red);
-    transition: transform var(--transition-speed);
-    text-shadow: 0 0 12px var(--glow-red);
-}
-
-.social-info h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 2px;
-}
-
-.social-info span {
-    font-size: 0.9rem;
-    color: var(--text-gray);
-    direction: ltr;
-    display: inline-block;
-}
-
-.social-card:hover {
-    background-color: rgba(139, 0, 0, 0.35);
-    border-color: var(--glow-red);
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(255, 26, 26, 0.5), inset 0 0 10px rgba(255, 26, 26, 0.3);
-}
-
-.social-card:hover i {
-    transform: scale(1.18);
-    text-shadow: 0 0 20px var(--glow-red), 0 0 30px var(--accent-red);
-}
-
-/* Grid Lists */
-.grid-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-red);
     margin-top: 15px;
 }
 
-.grid-list li {
-    background-color: rgba(139, 0, 0, 0.15);
-    border: 1px solid var(--border-color);
-    padding: 14px 20px;
-    border-radius: 10px;
-    text-align: center;
-    color: var(--text-white);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: all var(--transition-speed);
-}
-
-.grid-list li i {
-    color: var(--glow-red);
-    text-shadow: 0 0 8px var(--glow-red);
-}
-
-.grid-list li:hover {
-    background-color: var(--primary-red);
-    transform: scale(1.03);
-    box-shadow: 0 0 18px var(--glow-red);
-}
-
-/* Footer */
-.site-footer {
-    text-align: center;
-    padding: 30px 20px;
-    border-top: 1px solid var(--border-color);
-    background-color: rgba(5, 5, 5, 0.95);
-    color: var(--text-gray);
-    font-size: 1.1rem;
-}
-
-/* Animations for Dynamic Flow */
-@keyframes backgroundDynamicFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes neonBorderFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes textNeonPulse {
-    0% { text-shadow: 0 0 5px var(--primary-red), 0 0 10px var(--glow-red); }
-    100% { text-shadow: 0 0 15px var(--glow-red), 0 0 30px var(--accent-red), 0 0 45px var(--glow-red); }
-}
-
-@keyframes titleGlow {
-    0% { text-shadow: 0 0 5px var(--primary-red); }
-    100% { text-shadow: 0 0 15px var(--glow-red), 0 0 25px var(--accent-red); }
-}
-
-@keyframes borderNeonGlow {
-    0% { box-shadow: 0 0 10px var(--primary-red); }
-    100% { box-shadow: 0 0 25px var(--glow-red), 0 0 40px var(--accent-red); }
-}
-/* خلفية حمراء وسوداء متحركة وفخمة */
-body {
-    background-color: #1a0000 !important;
-    background-image: linear-gradient(135deg, #1a0000 0%, #3d0000 50%, #0d0000 100%) !important;
-    background-size: 300% 300% !important;
-    animation: backgroundDynamicFlow 8s ease infinite !important;
-}
-
-
-   
-/* تنسيق فيديو الخلفية ليغطي الشاشة بثبات وفخامة */
-.bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -999;
-    pointer-events: none;
-    opacity: 0.6;
+.phone-box a {
+    color: #ff9999;
+    text-decoration: none;
+    font-weight: bold;
 }
