@@ -1,6 +1,14 @@
-/* تنسيق عام للموقع */
+/* ==========================================================
+   1. التنسيق الأساسي والعام للموقع والفونتات
+   ========================================================== */
+:root {
+    --primary-red: #ff0033;
+    --glow-red: rgba(255, 0, 51, 0.7);
+    --dark-bg: #0a0000;
+}
+
 body {
-    background-color: #000000 !important;
+    background-color: var(--dark-bg);
     color: #ffffff;
     font-family: 'Cairo', sans-serif;
     margin: 0;
@@ -8,7 +16,9 @@ body {
     overflow-x: hidden;
 }
 
-/* تنسيق فيديو الخلفية الميتركس */
+/* ==========================================================
+   2. تنسيق فيديو الخلفية (Matrix Background Video)
+   ========================================================== */
 .bg-video {
     position: fixed !important;
     top: 0 !important;
@@ -18,10 +28,12 @@ body {
     object-fit: cover !important;
     z-index: -999 !important;
     pointer-events: none !important;
-    opacity: 0.7;
+    opacity: 0.65; /* تحكم في درجة إضاءة الفيديو عشان العناصر تظهر بوضوح */
 }
 
-/* باقي تنسيقاتك الملكية */
+/* ==========================================================
+   3. تنسيق الحاويات والعناصر الأساسية والبرواز الملكي
+   ========================================================== */
 .banner-container {
     position: relative;
     width: 100%;
@@ -29,9 +41,9 @@ body {
     margin: 20px auto;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 0 25px rgba(255, 0, 51, 0.7);
-    border: 2px solid #ff0033;
-    background: rgba(10, 0, 0, 0.6);
+    box-shadow: 0 0 25px var(--glow-red);
+    border: 2px solid var(--primary-red);
+    background: rgba(10, 0, 0, 0.75); /* خلفية شفافة قليلاً لضمان وضوح ما بداخله */
 }
 
 .banner-image {
@@ -40,6 +52,7 @@ body {
     display: block;
 }
 
+/* تنسيق الهيدر والبروفایل */
 .site-header {
     text-align: center;
     padding: 20px;
@@ -49,14 +62,14 @@ body {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #ff0033;
-    box-shadow: 0 0 20px rgba(255, 0, 51, 0.7);
+    border: 3px solid var(--primary-red);
+    box-shadow: 0 0 20px var(--glow-red);
     object-fit: cover;
 }
 
 .logo h1 {
     color: #fff;
-    text-shadow: 0 0 10px #ff0033;
+    text-shadow: 0 0 10px var(--primary-red);
     margin: 10px 0 5px 0;
 }
 
@@ -72,6 +85,9 @@ body {
     line-height: 1.6;
 }
 
+/* ==========================================================
+   4. أزرار السوشيال ميديا السريعة وأزرار الموقع
+   ========================================================== */
 .quick-socials {
     display: flex;
     justify-content: center;
@@ -82,12 +98,19 @@ body {
 .social-icon {
     color: #fff;
     background: rgba(255, 0, 51, 0.2);
-    border: 1px solid #ff0033;
+    border: 1px solid var(--primary-red);
     padding: 10px 15px;
     border-radius: 8px;
+    transition: 0.3s ease;
     text-decoration: none;
 }
 
+.social-icon:hover {
+    background: var(--primary-red);
+    box-shadow: 0 0 15px var(--primary-red);
+}
+
+/* الحاويات والبطاقات (Cards) */
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -95,9 +118,32 @@ body {
 }
 
 .card-about-section, .card-social-cards-section {
-    background: rgba(20, 0, 0, 0.7);
-    border: 1px solid #ff0033;
+    background: rgba(20, 0, 0, 0.8);
+    border: 1px solid var(--primary-red);
     border-radius: 12px;
     padding: 25px;
     margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.3);
+}
+
+.card-about-section h2, .card-social-cards-section h2 {
+    color: #fff;
+    text-shadow: 0 0 8px var(--primary-red);
+    border-bottom: 1px solid rgba(255, 0, 51, 0.4);
+    padding-bottom: 10px;
+}
+
+/* الأرقام والاتصال */
+.phone-box {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-red);
+    margin-top: 15px;
+}
+
+.phone-box a {
+    color: #ff9999;
+    text-decoration: none;
+    font-weight: bold;
 }
