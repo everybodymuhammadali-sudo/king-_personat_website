@@ -385,3 +385,15 @@ body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+/* تنسيق فيديو الخلفية ليغطي الشاشة بثبات وفخامة */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -999;
+    pointer-events: none;
+    opacity: 0.6;
+}
