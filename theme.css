@@ -380,11 +380,8 @@ body {
     animation: backgroundDynamicFlow 8s ease infinite !important;
 }
 
-@keyframes backgroundDynamicFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+
+   
 /* تنسيق فيديو الخلفية ليغطي الشاشة بثبات وفخامة */
 .bg-video {
     position: fixed;
